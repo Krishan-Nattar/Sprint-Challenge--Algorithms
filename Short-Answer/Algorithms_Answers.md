@@ -6,19 +6,25 @@ a) O(n)
 
 for every additional unit in the input 'n', the runtime increases by that number.
 
+examples:
 a < 1 * 1 * 1 = a < 1
     a = a+1
 runs once
+
 a< 2 * 2 * 2 = a < 8
     a = a+4
-runs twice,
-etc.
+runs twice
+
+etc...
 
 
 b) O(n log n)
-the initial for loop is a straight O(n) runtime, because it runs for every number in a given input range.
+
+the initial for loop is a straight O(n) runtime, because it runs for equal to the number in a given input range (n).
 
 There is a nested while loop that runs while j < n.  j gets multiplied by 2 each time, halving the total amount of iterations, leading me to O(log n)
+
+Example: 
 
 if n is 3, the first for loop will run 3 times,
 each time, the while loop will run 3 times (j = 1, j =2 , j= 4, break)
@@ -33,7 +39,8 @@ Since the while loop grows lower than the proportional increase in the input siz
 
 
 c) O(n)
-The function will run a number of times equal to the amount given in 'bunnies', therefore it is O(n)
+
+The function will run a number of times equal to the input amount given in 'bunnies', therefore it is O(n)
 n equals the amount of bunnies passed in.
 
 ## Exercise II
