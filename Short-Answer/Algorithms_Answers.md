@@ -3,7 +3,8 @@
 ## Exercise I
 
 a) O(n)
-for every additional unit in 'n', the runtime increases by that number.
+
+for every additional unit in the input 'n', the runtime increases by that number.
 
 a < 1 * 1 * 1 = a < 1
     a = a+1
@@ -14,13 +15,14 @@ runs twice,
 etc.
 
 
-b) O(n log(n))?
+b) O(n log n)
 the initial for loop is a straight O(n) runtime, because it runs for every number in a given input range.
 There is anested while loop that runs while j < n.  j gets multiplied by 2 each time, halving the total amount of iterations, leading me to O(log n)
 
 
 c) O(n)
 The function will run a number of times equal to the amount given in 'bunnies', therefore it is O(n)
+n equals the amount of bunnies passed in.
 
 ## Exercise II
 
@@ -39,3 +41,5 @@ If the egg breaks, and you move one spot down and the egg doesn't break.. The pr
 if the egg doesn't break and you move up one and it does break, that last one is your 'f'
 
 Since we are halving every time, the runtime complexity would be O(log n)
+
+n would represent the amount of floors
