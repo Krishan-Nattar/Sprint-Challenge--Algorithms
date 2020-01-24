@@ -100,59 +100,46 @@ class SortingRobot:
 
             #Move all the way to the left and pick up item
             while True:
+                # This moves the robot all the way to the left until it can't anymore
                 if(self.can_move_left() == True):
-                    # print('Moving left!!')
                     self.move_left()
                 else:
+                    # Once it is all the way to the left, pick up the item there
                     self.swap_item()
-                    # print(f"I have moved all the way to the left and picked up {self._item}")
-                    # print(self._item)
                     break
-                # print('hello')
             while True:
-                # print('now here!')
                 if self.can_move_right():
 
                     # move one to the right and compare what we're holding
                     self.move_right()
-                    # print('Moved one to the right!')
 
                     # if the item in the list is less than the item we're holding...
                     if self.compare_item() == 1:
-                        # Use the light as our boolean (True)
-                        # Switch the items
+                        # Use the light as our boolean (True). This let's us know we have swapped an item
                         self.set_light_on()
+                        # Switch the items
                         self.swap_item()
-                        # print(f"now holding {self._item}")
                         self.move_left()
                         self.swap_item()
-                        # print(f"now holding {self._item}")
                         self.move_right()
-                        # print(f'The item in the list if less than what Im holding. I switched it. Now holding {self._item}')
-                        # print(f"The list is {self._list}")
                         # if there's more room the to right, pick up the item and repeat the full process
                         if self.can_move_right():
-                            # print('moo')
                             self.swap_item()
                         else:
-                            # print('meow!!')
                             break
                     else:
-                        # print("the item is MORE than what I have")
+                        # If the item we're looking at is more than the item we're holding, put item we're holding back, then pick up item we're looking at (only if there's more room on the right)
                         self.move_left()
                         self.swap_item()
                         self.move_right()
                         if self.can_move_right() == True:
                             self.swap_item()
-                            # print(f"Now I'm holding {self._item}")
                 else:
-                    # print("bbrrreeak")
                     break
             if self.light_is_on() == False:
+                # If we have not swapped any items, the light will be off. Therefore the sort is complete
                 break
 
-
-                
         """
         Sort the robot's list.
         """
