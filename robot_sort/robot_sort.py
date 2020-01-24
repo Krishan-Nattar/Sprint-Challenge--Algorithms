@@ -100,16 +100,9 @@ class SortingRobot:
             # Boolean false
             self.set_light_off()
 
-            #Move all the way to the left and pick up item
+   
             self.swap_item()
-            # while True:
-            #     # This moves the robot all the way to the left until it can't anymore
-            #     if(self.can_move_left() == True):
-            #         self.move_left()
-            #     else:
-            #         # Once it is all the way to the left, pick up the item there
-            #         self.swap_item()
-            #         break
+   
             while True:
                 if self.can_move_right():
 
