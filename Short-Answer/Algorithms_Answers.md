@@ -17,7 +17,19 @@ etc.
 
 b) O(n log n)
 the initial for loop is a straight O(n) runtime, because it runs for every number in a given input range.
-There is anested while loop that runs while j < n.  j gets multiplied by 2 each time, halving the total amount of iterations, leading me to O(log n)
+
+There is a nested while loop that runs while j < n.  j gets multiplied by 2 each time, halving the total amount of iterations, leading me to O(log n)
+
+if n is 3, the first for loop will run 3 times,
+each time, the while loop will run 3 times (j = 1, j =2 , j= 4, break)
+
+if n is 5, the first for loop will run 5 times,
+the while loop will run 4 times. (j=1, j=2, j=4, j=8, break)
+
+if n is 7, the first for loop will run 7 times,
+the while loop will run 4 times (j=1, j=2, j=4, j=8, break)
+
+Since the while loop grows lower than the proportional increase in the input size, we assume O(log n) for that part.
 
 
 c) O(n)

@@ -93,6 +93,66 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        while True:
+
+            # Boolean false
+            self.set_light_off()
+
+            #Move all the way to the left and pick up item
+            while True:
+                if(self.can_move_left() == True):
+                    # print('Moving left!!')
+                    self.move_left()
+                else:
+                    self.swap_item()
+                    # print(f"I have moved all the way to the left and picked up {self._item}")
+                    # print(self._item)
+                    break
+                # print('hello')
+            while True:
+                # print('now here!')
+                if self.can_move_right():
+
+                    # move one to the right and compare what we're holding
+                    self.move_right()
+                    # print('Moved one to the right!')
+
+                    # if the item in the list is less than the item we're holding...
+                    if self.compare_item() == 1:
+                        # Use the light as our boolean (True)
+                        # Switch the items
+                        self.set_light_on()
+                        self.swap_item()
+                        # print(f"now holding {self._item}")
+                        self.move_left()
+                        self.swap_item()
+                        # print(f"now holding {self._item}")
+                        self.move_right()
+                        # print(f'The item in the list if less than what Im holding. I switched it. Now holding {self._item}')
+                        # print(f"The list is {self._list}")
+                        # if there's more room the to right, pick up the item and repeat the full process
+                        if self.can_move_right():
+                            # print('moo')
+                            self.swap_item()
+                        else:
+                            # print('meow!!')
+                            break
+                    else:
+                        # print("the item is MORE than what I have")
+                        self.move_left()
+                        self.swap_item()
+                        self.move_right()
+                        if self.can_move_right() == True:
+                            self.swap_item()
+                            # print(f"Now I'm holding {self._item}")
+                else:
+                    # print("bbrrreeak")
+                    break
+            if self.light_is_on() == False:
+                break
+
+
+                
         """
         Sort the robot's list.
         """
