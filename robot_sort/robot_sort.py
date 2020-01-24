@@ -93,11 +93,95 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        # ROBOT BUBBLE SORT
+
+        while True:
+
+            # Boolean false
+            self.set_light_off()
+
+   
+            self.swap_item()
+   
+            while True:
+                if self.can_move_right():
+
+                    # move one to the right and compare what we're holding
+                    self.move_right()
+
+                    # if the item in the list is less than the item we're holding...
+                    if self.compare_item() == 1:
+                        # Use the light as our boolean (True). This let's us know we have swapped an item
+
+                        self.set_light_on()
+                        # Switch the items
+                        self.swap_item()
+                        if self.can_move_right() == False:
+                            self.move_left()
+                            self.swap_item()
+                            break
+                        else:
+
+                            self.move_left()
+                            self.swap_item()
+                            self.move_right()
+                            self.swap_item()
+                        # if there's more room the to right, pick up the item and repeat the full process
+
+                    else:
+                        # If the item we're looking at is more than the item we're holding, put item we're holding back, then pick up item we're looking at (only if there's more room on the right)
+                        self.move_left()
+                        self.swap_item()
+                        self.move_right()
+                        if self.can_move_right() == True:
+                            self.swap_item()
+                else:
+                    break
+            if self.light_is_on() == False:
+                # If we have not swapped any items, the light will be off. Therefore the sort is complete
+                break
+
+
+                # Reverse bubble swap??
+            else:
+                self.set_light_off()
+                self.swap_item()
+
+            while True:
+                if self.can_move_left():
+
+                    self.move_left()
+
+                    if self.compare_item() == -1:
+                        self.set_light_on()
+
+                        self.swap_item()
+
+                        if self.can_move_left() == False:
+                            self.move_right()
+                            self.swap_item()
+                            break
+                        else:
+
+                            self.move_right()
+                            self.swap_item()
+                            self.move_left()
+                            self.swap_item()
+                        
+                    else:
+                        self.move_right()
+                        self.swap_item()
+                        self.move_left()
+                        if self.can_move_left() == True:
+                            self.swap_item()
+                else:
+                    break
+            if self.light_is_on() == False:
+                break
+
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
 
 
 if __name__ == "__main__":
