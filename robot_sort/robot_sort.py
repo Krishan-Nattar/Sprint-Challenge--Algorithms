@@ -134,10 +134,7 @@ class SortingRobot:
                             self.move_right()
                             self.swap_item()
                         # if there's more room the to right, pick up the item and repeat the full process
-                        # if self.can_move_right():
-                        #     self.swap_item()
-                        # else:
-                        #     break
+
                     else:
                         # If the item we're looking at is more than the item we're holding, put item we're holding back, then pick up item we're looking at (only if there's more room on the right)
                         self.move_left()
@@ -164,14 +161,20 @@ class SortingRobot:
 
                     if self.compare_item() == -1:
                         self.set_light_on()
+
                         self.swap_item()
-                        self.move_right()
-                        self.swap_item()
-                        self.move_left()
-                        if self.can_move_left():
+
+                        if self.can_move_left() == False:
+                            self.move_right()
                             self.swap_item()
-                        else:
                             break
+                        else:
+
+                            self.move_right()
+                            self.swap_item()
+                            self.move_left()
+                            self.swap_item()
+                        
                     else:
                         self.move_right()
                         self.swap_item()
