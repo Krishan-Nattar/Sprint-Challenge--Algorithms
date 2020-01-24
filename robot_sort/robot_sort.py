@@ -94,7 +94,7 @@ class SortingRobot:
 
     def sort(self):
         # ROBOT BUBBLE SORT
-        
+
         while True:
 
             # Boolean false
@@ -135,6 +135,45 @@ class SortingRobot:
                         self.swap_item()
                         self.move_right()
                         if self.can_move_right() == True:
+                            self.swap_item()
+                else:
+                    break
+            if self.light_is_on() == False:
+                # If we have not swapped any items, the light will be off. Therefore the sort is complete
+                break
+
+
+                # Reverse bubble swap??
+            else:
+                self.set_light_off()
+                self.swap_item()
+
+            while True:
+                if self.can_move_left():
+
+                    # move one to the left and compare what we're holding
+                    self.move_left()
+
+                    # if the item in the list is less than the item we're holding...
+                    if self.compare_item() == -1:
+                        # Use the light as our boolean (True). This let's us know we have swapped an item
+                        self.set_light_on()
+                        # Switch the items
+                        self.swap_item()
+                        self.move_right()
+                        self.swap_item()
+                        self.move_left()
+                        # if there's more room the to right, pick up the item and repeat the full process
+                        if self.can_move_left():
+                            self.swap_item()
+                        else:
+                            break
+                    else:
+                        # If the item we're looking at is more than the item we're holding, put item we're holding back, then pick up item we're looking at (only if there's more room on the right)
+                        self.move_right()
+                        self.swap_item()
+                        self.move_left()
+                        if self.can_move_left() == True:
                             self.swap_item()
                 else:
                     break
