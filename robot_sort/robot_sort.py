@@ -93,6 +93,8 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        # ROBOT BUBBLE SORT
+        
         while True:
 
             # Boolean false
@@ -143,8 +145,6 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
 
 
 if __name__ == "__main__":
